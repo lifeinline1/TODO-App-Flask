@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block body %}
+  <br>
+  <div class="text-center">
+    <h1>This is just the homepage</h1>
+    <a class="btn btn-sm btn-primary" href="{{ url_for('login_page') }}">Login</a>
+    <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
+</div>
+{% endblock %}

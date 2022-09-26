@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block body %}
+<div class="containter-fluid center text-center">
+  <br>
+  <form method="POST" class="form-signin" style="color:white; width: 50%; margin: 0 auto;" >
+      {{ form.hidden_tag() }}
+    <h1 class="h3 mb-3 font-weight-normal">
+      Add new task
+    </h1>
+      {{ form.task.label('')}}
+      {{ form.task(class="form-control", placeholder="Enter new task here") }}
+      <br>
+      {{ form.submit(class="btn btn-lg  btn-primary") }}
+
+  </form>
+</div>
+
+<h1 style="text-align: center;">Your tasks</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Task</th>
+      <th scope="col">Added</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+      <tr>
+        <td> {{item.name}}</td>
+        <td> {{item.entry}}</td>
+        <td> 
+          <form methods="POST">
+              {{ task_done_form.hidden_tag() }}
+              {{ task_done_form.submit(class="btn btn-outline btn-success") }}
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
+
+
